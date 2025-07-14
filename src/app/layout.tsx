@@ -1,14 +1,11 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navigation/navbar"
 import { Footer } from "@/components/navigation/footer"
 
-const inter = Inter({ subsets: ["latin"] })
-
 export const metadata: Metadata = {
-  title: "My Website",
-  description: "A modern Next.js website with shadcn/ui",
+  title: "Repense",
+  description: "Transformando vidas através da educação e tecnologia",
 }
 
 export default function RootLayout({
@@ -17,12 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+    <html lang="pt-BR">
+      <body className="min-h-screen flex flex-col font-sans">
         <Navbar />
-        <main className="container mx-auto p-4 flex-grow">
-          {children}
-        </main>
+        {children}
         <Footer />
       </body>
     </html>

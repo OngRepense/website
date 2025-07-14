@@ -19,12 +19,14 @@ export default function Home() {
                 Transformamos vidas através de projetos sociais que promovem educação, sustentabilidade e desenvolvimento comunitário.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button 
-                  size="lg"
-                  className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg"
-                >
-                  Conheça nossos projetos
-                </Button>
+                <Link href="/projetos">
+                  <Button 
+                    size="lg"
+                    className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg"
+                  >
+                    Conheça nossos projetos
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex-1 relative">
