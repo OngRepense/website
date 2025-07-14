@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link"
 
 export default function Projects() {
   return (
@@ -34,9 +35,11 @@ export default function Projects() {
                 Um projeto 100% gratuito que oferece acompanhamento educacional para crianças e adolescentes em situação de vulnerabilidade. Mais do que reforço nos estudos, promovemos um espaço lúdico e acolhedor, onde os alunos aprendem, interagem com colegas e se desenvolvem de forma integral.
               </p>
               <div className="mt-8">
-                <Button className="bg-[#FF6B00] hover:bg-[#E65A00] text-white">
-                  Saiba mais
-                </Button>
+                <Link href="/projetos/reforco-escolar">
+                  <Button className="bg-[#FF6B00] hover:bg-[#E65A00] text-white">
+                    Saiba mais
+                  </Button>
+                </Link>
               </div>
             </CardContent>
           </Card>

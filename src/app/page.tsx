@@ -32,7 +32,7 @@ export default function Home() {
             <div className="flex-1 w-full lg:w-auto">
               <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/hero-kids.jpg"
+                  src="/images/reforco-escolar-comunitario/32.jpg"
                   alt="Crianças participando de atividades educacionais da Repense"
                   fill
                   className="object-cover rounded-2xl"

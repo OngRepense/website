@@ -1,8 +1,11 @@
 {
   "/_not-found": "app/_not-found.js",
+  "/blog/page": "app/blog/page.js",
+  "/contato/page": "app/contato/page.js",
   "/equipe/page": "app/equipe/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
   "/projetos/page": "app/projetos/page.js",
+  "/projetos/reforco-escolar/page": "app/projetos/reforco-escolar/page.js",
   "/sobre/page": "app/sobre/page.js"
 }
