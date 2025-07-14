@@ -8,36 +8,36 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="w-full pt-32 pb-16 bg-orange-50">
+      <section className="w-full pt-24 md:pt-32 pb-12 md:pb-16 bg-orange-50">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1 space-y-6">
-              <h1 className="text-5xl lg:text-[3.5rem] font-bold leading-tight text-[#FF6B00]">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+            <div className="flex-1 space-y-4 md:space-y-6 text-center lg:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-tight text-[#FF6B00]">
                 Repense o futuro
               </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                 Transformamos vidas através de projetos sociais que promovem educação, sustentabilidade e desenvolvimento comunitário.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
                 <Link href="/projetos">
                   <Button 
                     size="lg"
-                    className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg"
+                    className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-base md:text-lg"
                   >
                     Conheça nossos projetos
                   </Button>
                 </Link>
               </div>
             </div>
-            <div className="flex-1 relative">
-              <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
+            <div className="flex-1 w-full lg:w-auto">
+              <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/hero-kids.jpg"
                   alt="Crianças participando de atividades educacionais da Repense"
                   fill
                   className="object-cover rounded-2xl"
                   priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl" />
               </div>
@@ -47,13 +47,13 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="w-full py-24 bg-white">
+      <section className="w-full py-16 md:py-24 bg-white">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#FF6B00]">
               Nossa Missão
             </h2>
-            <p className="text-xl text-gray-700 mb-16 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 mb-12 md:mb-16 leading-relaxed">
               Promover transformação social por meio da pesquisa tecnológica e da educação, desenvolvendo
               ferramentas e soluções inovadoras que atendam às reais necessidades da comunidade onde atuamos.
             </p>
@@ -126,13 +126,13 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <section className="w-full py-24 bg-orange-50">
+      <section className="w-full py-16 md:py-24 bg-orange-50">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#FF6B00]">
               Nossos Parceiros
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               Empresas e organizações que acreditam no nosso trabalho e nos ajudam a transformar vidas.
             </p>
           </div>
@@ -141,21 +141,21 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="w-full py-24 bg-white">
+      <section className="w-full py-16 md:py-24 bg-white">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#FF6B00]">
               Nossos Projetos
             </h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               Conheça algumas das iniciativas que desenvolvemos para promover educação e tecnologia em nossa comunidade
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
             {/* Reforço Escolar */}
             <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md overflow-hidden">
-              <CardHeader className="px-8 pt-8">
+              <CardHeader className="px-6 md:px-8 pt-6 md:pt-8">
                 <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -166,7 +166,7 @@ export default function Home() {
                   Apoio educacional com uso de tecnologia
                 </CardDescription>
               </CardHeader>
-              <CardContent className="px-8 pb-8">
+              <CardContent className="px-6 md:px-8 pb-6 md:pb-8">
                 <p className="text-gray-600 leading-relaxed mb-8">
                   Um projeto 100% gratuito que oferece acompanhamento educacional para crianças e adolescentes em situação de vulnerabilidade. Mais do que reforço nos estudos, promovemos um espaço lúdico e acolhedor, onde os alunos aprendem, interagem com colegas e se desenvolvem de forma integral.
                 </p>
@@ -180,7 +180,7 @@ export default function Home() {
 
             {/* Conecteai */}
             <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md overflow-hidden">
-              <CardHeader className="px-8 pt-8">
+              <CardHeader className="px-6 md:px-8 pt-6 md:pt-8">
                 <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -191,7 +191,7 @@ export default function Home() {
                   Agência de Empregos
                 </CardDescription>
               </CardHeader>
-              <CardContent className="px-8 pb-8">
+              <CardContent className="px-6 md:px-8 pb-6 md:pb-8">
                 <p className="text-gray-600 leading-relaxed mb-8">
                   Conecteai é a nossa agência de emprego solidária, criada com muito carinho e amor para fomentar o trabalho digno e a valorização das pessoas da nossa comunidade. Acreditamos que o emprego transforma vidas, e por isso utilizamos a tecnologia como aliada para ampliar o alcance do bem.
                 </p>
@@ -204,10 +204,10 @@ export default function Home() {
             </Card>
           </div>
 
-          <div className="text-center mt-16">
+          <div className="text-center mt-12 md:mt-16">
             <Button 
               size="lg" 
-              className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg"
+              className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-base md:text-lg"
             >
               Ver todos os projetos
             </Button>
@@ -216,18 +216,18 @@ export default function Home() {
       </section>
 
       {/* Join Us CTA Section */}
-      <section className="w-full py-24 bg-orange-50">
+      <section className="w-full py-16 md:py-24 bg-orange-50">
         <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#FF6B00]">
             Faça parte da mudança
           </h2>
-          <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
             Sua contribuição pode transformar vidas. Junte-se a nós nessa missão de construir um futuro melhor para todos.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
             <Button 
               size="lg" 
-              className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg flex items-center justify-center gap-2"
+              className="w-full md:w-auto bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-base md:text-lg flex items-center justify-center gap-2"
             >
               <svg 
                 className="w-5 h-5" 
@@ -241,7 +241,7 @@ export default function Home() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-lg"
+              className="w-full md:w-auto border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-base md:text-lg"
             >
               Ser voluntário
             </Button>
