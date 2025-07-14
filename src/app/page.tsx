@@ -8,24 +8,27 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="w-full pt-32 pb-16 bg-white">
+      <section className="w-full pt-32 pb-16 bg-orange-50">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
-              <h1 className="text-4xl lg:text-[2.75rem] font-bold leading-tight">
+              <h1 className="text-5xl lg:text-[3.5rem] font-bold leading-tight text-[#FF6B00]">
                 Repense o futuro
               </h1>
-              <p className="text-lg text-gray-600">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Transformamos vidas através de projetos sociais que promovem educação, sustentabilidade e desenvolvimento comunitário.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
-              <Button variant="outline" className="hidden md:flex border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white">
+                <Button 
+                  size="lg"
+                  className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg"
+                >
                   Conheça nossos projetos
                 </Button>
               </div>
             </div>
             <div className="flex-1 relative">
-              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden">
+              <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/hero-kids.jpg"
                   alt="Crianças participando de atividades educacionais da Repense"
@@ -34,7 +37,7 @@ export default function Home() {
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl" />
               </div>
             </div>
           </div>
@@ -42,143 +45,168 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="w-full py-20 bg-white">
+      <section className="w-full py-24 bg-white">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Nossa missão
+            <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
+              Nossa Missão
             </h2>
-            <p className="text-lg text-gray-600 mb-16">
+            <p className="text-xl text-gray-700 mb-16 leading-relaxed">
               Promover transformação social por meio da pesquisa tecnológica e da educação, desenvolvendo
               ferramentas e soluções inovadoras que atendam às reais necessidades da comunidade onde atuamos.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Pesquisa & Tecnologia */}
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-4">
-                  Pesquisa & Tecnologia
-                </h3>
-                <p className="text-gray-600">
-                  Desenvolvemos pesquisas aplicadas e soluções tecnológicas inovadoras para resolver problemas
-                  sociais reais.
-                </p>
-              </div>
+              <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md">
+                <CardHeader>
+                  <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <svg className="w-10 h-10 text-[#FF6B00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <CardTitle className="text-2xl mb-4 text-center">
+                    Pesquisa & Tecnologia
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-center">
+                    Desenvolvemos pesquisas aplicadas e soluções tecnológicas inovadoras para resolver problemas
+                    sociais reais.
+                  </p>
+                </CardContent>
+              </Card>
 
               {/* Educação & Capacitação */}
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-4">
-                  Educação & Capacitação
-                </h3>
-                <p className="text-gray-600">
-                  Promovemos educação tecnológica e capacitação profissional para empoderar comunidades através do
-                  conhecimento.
-                </p>
-              </div>
+              <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md">
+                <CardHeader>
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <svg className="w-10 h-10 text-[#FF6B00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    </svg>
+                  </div>
+                  <CardTitle className="text-2xl mb-4 text-center">
+                    Educação & Capacitação
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-center">
+                    Promovemos educação tecnológica e capacitação profissional para empoderar comunidades através do
+                    conhecimento.
+                  </p>
+                </CardContent>
+              </Card>
 
               {/* Inovação Social */}
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-4">
-                  Inovação Social
-                </h3>
-                <p className="text-gray-600">
-                  Criamos ferramentas e metodologias que geram impacto social positivo e transformação
-                  sustentável.
-                </p>
-              </div>
+              <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md">
+                <CardHeader>
+                  <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <svg className="w-10 h-10 text-[#FF6B00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <CardTitle className="text-2xl mb-4 text-center">
+                    Inovação Social
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-center">
+                    Criamos ferramentas e metodologias que geram impacto social positivo e transformação
+                    sustentável.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Partners Section */}
-      <PartnersGrid />
+      <section className="w-full py-24 bg-orange-50">
+        <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
+              Nossos Parceiros
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Empresas e organizações que acreditam no nosso trabalho e nos ajudam a transformar vidas.
+            </p>
+          </div>
+          <PartnersGrid />
+        </div>
+      </section>
 
       {/* Projects Section */}
-      <section className="w-full bg-white py-20">
-        <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-screen-2xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-4">
+      <section className="w-full py-24 bg-white">
+        <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
               Nossos Projetos
             </h2>
-            <p className="text-gray-600">
+            <p className="text-xl text-gray-700 leading-relaxed">
               Conheça algumas das iniciativas que desenvolvemos para promover educação e tecnologia em nossa comunidade
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Reforço Escolar */}
-            <Card className="group hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-              <CardHeader>
-                <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md overflow-hidden">
+              <CardHeader className="px-8 pt-8">
+                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <CardTitle className="text-2xl mb-2">Reforço Escolar Comunitário</CardTitle>
-                <CardDescription className="text-lg">
+                <CardTitle className="text-2xl mb-3">Reforço Escolar Comunitário</CardTitle>
+                <CardDescription className="text-lg text-gray-600">
                   Apoio educacional com uso de tecnologia
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
+              <CardContent className="px-8 pb-8">
+                <p className="text-gray-600 leading-relaxed mb-8">
                   Um projeto 100% gratuito que oferece acompanhamento educacional para crianças e adolescentes em situação de vulnerabilidade. Mais do que reforço nos estudos, promovemos um espaço lúdico e acolhedor, onde os alunos aprendem, interagem com colegas e se desenvolvem de forma integral.
                 </p>
-                <div className="mt-8 flex items-center text-sm text-green-600">
-                  <span className="font-medium">Saiba mais</span>
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+                <Button 
+                  className="bg-[#FF6B00] hover:bg-[#E65A00] text-white"
+                >
+                  Saiba mais
+                </Button>
               </CardContent>
             </Card>
 
             {/* Conecteai */}
-            <Card className="group hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-              <CardHeader>
-                <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md overflow-hidden">
+              <CardHeader className="px-8 pt-8">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <CardTitle className="text-2xl mb-2">Conecteai</CardTitle>
-                <CardDescription className="text-lg">
+                <CardTitle className="text-2xl mb-3">Conecteai</CardTitle>
+                <CardDescription className="text-lg text-gray-600">
                   Agência de Empregos
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  Conecteai é a nossa agência de emprego solidária, criada com muito carinho e amor para fomentar o trabalho digno e a valorização das pessoas da nossa comunidade. Acreditamos que o emprego transforma vidas, e por isso utilizamos a tecnologia como aliada para ampliar o alcance do bem. Desenvolvemos ferramentas gratuitas que aproximam quem está buscando uma oportunidade de quem está oferecendo — facilitando conexões reais que geram impacto social positivo.
+              <CardContent className="px-8 pb-8">
+                <p className="text-gray-600 leading-relaxed mb-8">
+                  Conecteai é a nossa agência de emprego solidária, criada com muito carinho e amor para fomentar o trabalho digno e a valorização das pessoas da nossa comunidade. Acreditamos que o emprego transforma vidas, e por isso utilizamos a tecnologia como aliada para ampliar o alcance do bem.
                 </p>
-                <div className="mt-8 flex items-center text-sm text-purple-600">
-                  <span className="font-medium">Saiba mais</span>
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+                <Button 
+                  className="bg-[#FF6B00] hover:bg-[#E65A00] text-white"
+                >
+                  Saiba mais
+                </Button>
               </CardContent>
             </Card>
           </div>
 
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-[#FF6B00] hover:bg-[#E65A00] text-white">
+          <div className="text-center mt-16">
+            <Button 
+              size="lg" 
+              className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg"
+            >
               Ver todos os projetos
             </Button>
           </div>
@@ -186,15 +214,15 @@ export default function Home() {
       </section>
 
       {/* Join Us CTA Section */}
-      <section className="w-full bg-white py-24 border-t border-gray-100">
+      <section className="w-full py-24 bg-orange-50">
         <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-4xl font-bold mb-8 text-[#FF6B00]">
             Faça parte da mudança
           </h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
             Sua contribuição pode transformar vidas. Junte-se a nós nessa missão de construir um futuro melhor para todos.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-6">
             <Button 
               size="lg" 
               className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-lg flex items-center justify-center gap-2"

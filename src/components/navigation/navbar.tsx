@@ -25,8 +25,8 @@ export function Navbar() {
           <Link href="/projetos" className="text-gray-600 hover:text-[#FF6B00]">
             Projetos
           </Link>
-          <Link href="/impacto" className="text-gray-600 hover:text-[#FF6B00]">
-            Impacto
+          <Link href="/equipe" className="text-gray-600 hover:text-[#FF6B00]">
+            Equipe
           </Link>
           <Link href="/blog" className="text-gray-600 hover:text-[#FF6B00]">
             Blog
