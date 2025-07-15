@@ -1,10 +1,8 @@
 {
   "/page": "app/page.js",
-  "/sobre/page": "app/sobre/page.js",
-  "/projetos/page": "app/projetos/page.js",
-  "/equipe/page": "app/equipe/page.js",
-  "/blog/page": "app/blog/page.js",
   "/contato/page": "app/contato/page.js",
-  "/projetos/laboratorio-inovacao/page": "app/projetos/laboratorio-inovacao/page.js",
-  "/projetos/conecteai/page": "app/projetos/conecteai/page.js"
+  "/blog/page": "app/blog/page.js",
+  "/equipe/page": "app/equipe/page.js",
+  "/projetos/page": "app/projetos/page.js",
+  "/sobre/page": "app/sobre/page.js"
 }

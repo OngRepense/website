@@ -52,7 +52,7 @@ export default function Team() {
     {
       name: "Dmeval Neto",
       role: "Fundador e CEO",
-      description: "Apaixonado por transformação social através da tecnologia e educação.",
+      description: "Formado em Análise e Desenvolvimento de Sistemas, com pós-graduação em Arquitetura de Software, Dmeval uniu sua paixão por tecnologia ao desejo de gerar impacto social. Fundador da Repense, lidera com propósito, empatia e inovação, acreditando que cada conexão pode transformar uma vida — e que a tecnologia deve sempre servir ao bem comum.",
       image: "/images/foto-fundador.png"
     },
     {

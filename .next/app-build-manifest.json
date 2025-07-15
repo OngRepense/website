@@ -11,40 +11,30 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/sobre/page": [
+    "/contato/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sobre/page.js"
-    ],
-    "/projetos/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/projetos/page.js"
-    ],
-    "/equipe/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/equipe/page.js"
+      "static/chunks/app/contato/page.js"
     ],
     "/blog/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/blog/page.js"
     ],
-    "/contato/page": [
+    "/equipe/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/contato/page.js"
+      "static/chunks/app/equipe/page.js"
     ],
-    "/projetos/laboratorio-inovacao/page": [
+    "/projetos/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/projetos/laboratorio-inovacao/page.js"
+      "static/chunks/app/projetos/page.js"
     ],
-    "/projetos/conecteai/page": [
+    "/sobre/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/projetos/conecteai/page.js"
+      "static/chunks/app/sobre/page.js"
     ]
   }
 }
