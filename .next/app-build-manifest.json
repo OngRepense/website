@@ -11,6 +11,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/sobre/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/sobre/page.js"
+    ],
     "/projetos/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -31,15 +36,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/contato/page.js"
     ],
-    "/sobre/page": [
+    "/projetos/laboratorio-inovacao/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sobre/page.js"
+      "static/chunks/app/projetos/laboratorio-inovacao/page.js"
     ],
-    "/not-found": [
+    "/projetos/conecteai/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/projetos/conecteai/page.js"
     ]
   }
 }

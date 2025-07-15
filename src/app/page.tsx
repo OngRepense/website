@@ -141,76 +141,100 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="w-full py-16 md:py-24 bg-white">
-        <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
+      <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
+        {/* Elementos decorativos */}
+        <div className="absolute inset-0 overflow-hidden opacity-[0.03] pointer-events-none">
+          <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#FF6B00]"></div>
+          <div className="absolute -left-24 -bottom-24 w-96 h-96 rounded-full bg-[#FF6B00]"></div>
+        </div>
+
+        <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#FF6B00]">
+            <span className="inline-block px-4 py-1.5 bg-orange-100 rounded-full text-[#FF6B00] font-medium text-sm mb-4">
               Nossos Projetos
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+              Transformando vidas através da tecnologia
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Conheça algumas das iniciativas que desenvolvemos para promover educação e tecnologia em nossa comunidade
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Conheça nossas iniciativas que estão gerando impacto social positivo em nossa comunidade
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Reforço Escolar */}
-            <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md overflow-hidden">
-              <CardHeader className="px-6 md:px-8 pt-6 md:pt-8">
-                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="group">
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <CardTitle className="text-2xl mb-3">Reforço Escolar Comunitário</CardTitle>
-                <CardDescription className="text-lg text-gray-600">
-                  Apoio educacional com uso de tecnologia
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="px-6 md:px-8 pb-6 md:pb-8">
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  Um projeto 100% gratuito que oferece acompanhamento educacional para crianças e adolescentes em situação de vulnerabilidade. Mais do que reforço nos estudos, promovemos um espaço lúdico e acolhedor, onde os alunos aprendem, interagem com colegas e se desenvolvem de forma integral.
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Reforço Escolar Comunitário</h3>
+                <p className="text-gray-600 mb-6 flex-grow">
+                  Apoio educacional gratuito para crianças e adolescentes, combinando tecnologia e aprendizado para um desenvolvimento integral.
                 </p>
-                <Button 
-                  className="bg-[#FF6B00] hover:bg-[#E65A00] text-white"
-                >
+                <Link href="/projetos/reforco-escolar" className="inline-flex items-center text-[#FF6B00] font-medium group-hover:gap-2 transition-all">
                   Saiba mais
-                </Button>
-              </CardContent>
-            </Card>
+                  <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
 
             {/* Conecteai */}
-            <Card className="bg-white hover:bg-orange-50/50 transition-colors duration-300 border-none shadow-md overflow-hidden">
-              <CardHeader className="px-6 md:px-8 pt-6 md:pt-8">
-                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="group">
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <CardTitle className="text-2xl mb-3">Conecteai</CardTitle>
-                <CardDescription className="text-lg text-gray-600">
-                  Agência de Empregos
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="px-6 md:px-8 pb-6 md:pb-8">
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  Conecteai é a nossa agência de emprego solidária, criada com muito carinho e amor para fomentar o trabalho digno e a valorização das pessoas da nossa comunidade. Acreditamos que o emprego transforma vidas, e por isso utilizamos a tecnologia como aliada para ampliar o alcance do bem.
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Conecteai</h3>
+                <p className="text-gray-600 mb-6 flex-grow">
+                  Agência de emprego solidária que utiliza IA para conectar pessoas a oportunidades de trabalho digno em nossa comunidade.
                 </p>
-                <Button 
-                  className="bg-[#FF6B00] hover:bg-[#E65A00] text-white"
-                >
+                <Link href="/projetos/conecteai" className="inline-flex items-center text-[#FF6B00] font-medium group-hover:gap-2 transition-all">
                   Saiba mais
-                </Button>
-              </CardContent>
-            </Card>
+                  <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* Laboratório de Inovação */}
+            <div className="group">
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Laboratório de Inovação</h3>
+                <p className="text-gray-600 mb-6 flex-grow">
+                  Desenvolvimento de soluções tecnológicas inovadoras para resolver desafios sociais da nossa comunidade.
+                </p>
+                <Link href="/projetos/laboratorio-inovacao" className="inline-flex items-center text-[#FF6B00] font-medium group-hover:gap-2 transition-all">
+                  Saiba mais
+                  <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="text-center mt-12 md:mt-16">
-            <Button 
-              size="lg" 
-              className="bg-[#FF6B00] hover:bg-[#E65A00] text-white min-w-[200px] h-12 text-base md:text-lg"
-            >
-              Ver todos os projetos
-            </Button>
+            <Link href="/projetos">
+              <Button 
+                size="lg" 
+                className="bg-white text-[#FF6B00] border-2 border-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-base md:text-lg transition-colors duration-300"
+              >
+                Ver todos os projetos
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
