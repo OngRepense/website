@@ -97,13 +97,13 @@ const testimonials = [
     text: 'Consegui meu emprego atual através do Conecteai. O processo foi muito rápido e simples!'
   },
   {
-    avatar: '/placeholder-avatar-1.png',
+    avatar: '/placeholder-avatar-2.png',
     name: 'João Santos',
     role: 'Vendedor',
     text: 'A plataforma me ajudou a encontrar uma oportunidade incrível. Muito satisfeito!'
   },
   {
-    avatar: '/placeholder-avatar-1.png',
+    avatar: '/placeholder-avatar-3.png',
     name: 'Ana Oliveira',
     role: 'Recepcionista',
     text: 'Excelente iniciativa! Consegui me recolocar no mercado graças ao Conecteai.'

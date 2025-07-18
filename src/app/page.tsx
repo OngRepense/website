@@ -228,12 +228,12 @@ export default function Home() {
 
           <div className="text-center mt-12 md:mt-16">
             <Link href="/projetos">
-              <Button 
-                size="lg" 
+            <Button 
+              size="lg" 
                 className="bg-white text-[#FF6B00] border-2 border-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-base md:text-lg transition-colors duration-300"
-              >
-                Ver todos os projetos
-              </Button>
+            >
+              Ver todos os projetos
+            </Button>
             </Link>
           </div>
         </div>

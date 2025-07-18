@@ -1,8 +1,13 @@
 {
-  "/page": "app/page.js",
-  "/contato/page": "app/contato/page.js",
+  "/_not-found": "app/_not-found.js",
   "/blog/page": "app/blog/page.js",
+  "/contato/page": "app/contato/page.js",
   "/equipe/page": "app/equipe/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/projetos/conecteai/page": "app/projetos/conecteai/page.js",
+  "/projetos/laboratorio-inovacao/page": "app/projetos/laboratorio-inovacao/page.js",
   "/projetos/page": "app/projetos/page.js",
+  "/projetos/reforco-escolar/page": "app/projetos/reforco-escolar/page.js",
   "/sobre/page": "app/sobre/page.js"
 }

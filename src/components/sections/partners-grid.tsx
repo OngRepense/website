@@ -44,7 +44,7 @@ export function PartnersGrid() {
             e construir um futuro melhor.
           </p>
         </div>
-
+        
         {/* Grid de parceiros */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center">
           {partners.map((partner, index) => (
