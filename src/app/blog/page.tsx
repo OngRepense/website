@@ -144,7 +144,7 @@ export default function Blog() {
                 key={post.id}
                 className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <Link href={`/blog/${post.id}`}>
+                <Link href={`/blog/${post.id}`} className="block">
                   <div className="relative h-48">
                     <Image
                       src={post.image}
