@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 
@@ -84,6 +85,7 @@ export default function ReforcoEscolar() {
   const [activeTab, setActiveTab] = useState<'fotos' | 'videos'>('fotos')
   const [isLoading, setIsLoading] = useState(true)
   const [videoError, setVideoError] = useState<string | null>(null)
+  const [showProjectModal, setShowProjectModal] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   // Filtra os itens baseado na aba ativa
@@ -145,9 +147,17 @@ export default function ReforcoEscolar() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Sobre o Projeto */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Sobre o Projeto
-          </h2>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-3xl font-bold text-gray-900">
+              Sobre o Projeto
+            </h2>
+            <Button 
+              onClick={() => setShowProjectModal(true)}
+              className="bg-[#FF6B00] text-white hover:bg-[#FF6B00]/90"
+            >
+              Saiba Mais Sobre o Projeto
+            </Button>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="prose prose-lg">
               <p>
@@ -256,6 +266,117 @@ export default function ReforcoEscolar() {
             ))}
           </div>
         </section>
+
+        {/* Modal do Projeto */}
+        {showProjectModal && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+            <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-xl overflow-hidden">
+              <button
+                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 z-10 bg-white rounded-full p-2 shadow-md"
+                onClick={() => setShowProjectModal(false)}
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="p-8 overflow-y-auto max-h-[calc(90vh-2rem)]">
+                <div className="prose prose-lg max-w-none">
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    Projeto de Reforço Escolar Comunitário: Educando para Transformar
+                  </h1>
+                  <p className="text-xl text-gray-600 mb-8 italic">
+                    Uma parceria entre a ONG Repense e a sua comunidade para construir um futuro mais brilhante através da educação.
+                  </p>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-orange-50 p-6 rounded-lg border-l-4 border-[#FF6B00]">
+                      <p className="text-lg leading-relaxed">
+                        A ONG Repense acredita no poder da educação como a principal ferramenta de transformação social. Por isso, criamos o nosso Projeto de Reforço Escolar Comunitário, uma iniciativa dedicada a oferecer suporte pedagógico de alta qualidade para crianças e adolescentes, diretamente no coração de suas comunidades.
+                      </p>
+                    </div>
+
+                    <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                      <p className="text-lg leading-relaxed">
+                        Nosso objetivo vai além de ajudar com o dever de casa. Queremos inspirar a paixão pelo aprendizado, fortalecer a autoconfiança dos alunos e desenvolver o pensamento crítico, preparando-os não apenas para a escola, mas para a vida.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        Como Funciona a Nossa Parceria?
+                      </h2>
+                      <p className="text-lg leading-relaxed mb-6">
+                        Nosso modelo de atuação é baseado na colaboração e no fortalecimento de laços comunitários. Buscamos parcerias estratégicas com Associações de Moradores e outras organizações locais que desejam levar essa oportunidade para perto de suas famílias.
+                      </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                          O Papel da Associação Parceira:
+                        </h3>
+                        <p className="text-lg leading-relaxed">
+                          A associação é nossa principal aliada. Sua contribuição é fundamental e consiste em nos fornecer um espaço seguro e adequado para a realização das aulas (como um salão comunitário ou uma sala ociosa). Ao fazer isso, a associação se torna um polo de desenvolvimento educacional, fortalecendo seu papel e relevância junto aos moradores.
+                        </p>
+                      </div>
+
+                      <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                          O Papel da ONG Repense (Nossa Contrapartida):
+                        </h3>
+                        <p className="text-lg leading-relaxed mb-4">
+                          Em troca do espaço, a ONG Repense assume a responsabilidade por toda a estrutura pedagógica do projeto. Nós entramos com:
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-lg">
+                          <li><strong>Educadores Capacitados:</strong> Uma equipe de professores e pedagogos qualificados e comprometidos com uma educação humanizada e eficaz.</li>
+                          <li><strong>Material Didático Completo:</strong> Fornecemos todos os materiais necessários para as aulas, como livros, apostilas, cadernos, lápis e recursos lúdicos e educativos.</li>
+                          <li><strong>Metodologia Pedagógica:</strong> Implementamos nosso método de ensino focado na aprendizagem ativa, no desenvolvimento socioemocional e no acompanhamento individualizado de cada aluno.</li>
+                          <li><strong>Gestão e Coordenação:</strong> Cuidamos de toda a organização do projeto, desde o planejamento das aulas até a comunicação com as famílias e a avaliação contínua dos resultados.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                                          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                          Junte-se a Nós!
+                        </h2>
+                        <p className="text-lg leading-relaxed mb-4">
+                          Acreditamos que, unindo a força da comunidade (através do espaço) com nossa expertise em educação (através do conteúdo e dos educadores), podemos criar um ambiente de aprendizado poderoso e acessível para todos.
+                        </p>
+                        <p className="text-lg leading-relaxed mb-6">
+                          <strong>Sua associação de moradores tem um espaço e quer fazer a diferença?</strong>
+                        </p>
+                        <p className="text-lg leading-relaxed mb-8">
+                          Entre em contato conosco e vamos juntos levar o Projeto de Reforço Escolar da ONG Repense para a sua comunidade.
+                        </p>
+                        
+                        <div className="text-center">
+                          <Link href="/contato">
+                            <Button 
+                              className="bg-[#FF6B00] text-white hover:bg-[#FF6B00]/90 text-lg px-8 py-3"
+                              onClick={() => setShowProjectModal(false)}
+                            >
+                              Solicitar o Projeto para Minha Comunidade
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Modal para visualização */}
         {selectedItem !== null && (
