@@ -29,7 +29,7 @@ const vagasDisponiveis: Vaga[] = [
     titulo: 'Educador Voluntário - Reforço Escolar',
     area: 'Educação',
     tipo: 'voluntario',
-    localizacao: 'São Paulo, SP',
+    localizacao: 'Salvador, BA',
     cargaHoraria: '4 horas/semana',
     descricao: 'Buscamos educadores comprometidos para atuar no projeto de reforço escolar comunitário, ajudando crianças e adolescentes em situação de vulnerabilidade social.',
     responsabilidades: [
@@ -58,7 +58,7 @@ const vagasDisponiveis: Vaga[] = [
     titulo: 'Assistente Administrativo',
     area: 'Administração',
     tipo: 'emprego',
-    localizacao: 'São Paulo, SP',
+    localizacao: 'Salvador, BA',
     cargaHoraria: '40 horas/semana',
     descricao: 'Vaga para assistente administrativo para apoiar a gestão da ONG, organizando documentos, controles financeiros e comunicação interna.',
     responsabilidades: [
@@ -87,7 +87,7 @@ const vagasDisponiveis: Vaga[] = [
     titulo: 'Estagiário de Marketing Digital',
     area: 'Marketing',
     tipo: 'estagio',
-    localizacao: 'São Paulo, SP',
+    localizacao: 'Salvador, BA',
     cargaHoraria: '30 horas/semana',
     descricao: 'Estágio para estudantes de Marketing, Publicidade ou Comunicação Social interessados em trabalhar com marketing digital para causas sociais.',
     responsabilidades: [
@@ -116,7 +116,7 @@ const vagasDisponiveis: Vaga[] = [
     titulo: 'Psicólogo Voluntário',
     area: 'Saúde Mental',
     tipo: 'voluntario',
-    localizacao: 'São Paulo, SP',
+    localizacao: 'Salvador, BA',
     cargaHoraria: '6 horas/semana',
     descricao: 'Buscamos psicólogos para oferecer apoio psicológico às crianças e famílias atendidas pelos nossos projetos.',
     responsabilidades: [
