@@ -10,5 +10,6 @@
   "/projetos/laboratorio-inovacao/page": "app/projetos/laboratorio-inovacao/page.js",
   "/projetos/page": "app/projetos/page.js",
   "/projetos/reforco-escolar/page": "app/projetos/reforco-escolar/page.js",
-  "/sobre/page": "app/sobre/page.js"
+  "/sobre/page": "app/sobre/page.js",
+  "/vagas/page": "app/vagas/page.js"
 }

@@ -42,6 +42,11 @@ export function Navbar() {
           </Link>
         </div>
         <div className="flex items-center space-x-4 ml-auto">
+          <Link href="/vagas">
+            <Button variant="outline" className="hidden md:flex border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white">
+              Vagas
+            </Button>
+          </Link>
           <Button variant="outline" className="hidden md:flex border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white">
             Seja Voluntário
           </Button>
@@ -120,6 +125,13 @@ export function Navbar() {
             onClick={() => setIsMenuOpen(false)}
           >
             Contato
+          </Link>
+          <Link
+            href="/vagas"
+            className="block text-gray-600 hover:text-[#FF6B00] py-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Vagas
           </Link>
           <Button
             variant="outline"
