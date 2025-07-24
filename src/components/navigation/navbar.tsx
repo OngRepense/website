@@ -47,9 +47,11 @@ export function Navbar() {
               Vagas
             </Button>
           </Link>
-          <Button variant="outline" className="hidden md:flex border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white">
-            Seja Voluntário
-          </Button>
+          <Link href="/voluntarios">
+            <Button variant="outline" className="hidden md:flex border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white">
+              Seja Voluntário
+            </Button>
+          </Link>
           <Button className="bg-[#FF6B00] hover:bg-[#E65A00] text-white text-sm md:text-base px-3 md:px-4">
             Doe Agora
           </Button>
@@ -133,13 +135,14 @@ export function Navbar() {
           >
             Vagas
           </Link>
-          <Button
-            variant="outline"
-            className="w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white mt-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Seja Voluntário
-          </Button>
+          <Link href="/voluntarios" onClick={() => setIsMenuOpen(false)}>
+            <Button
+              variant="outline"
+              className="w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white mt-4"
+            >
+              Seja Voluntário
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>

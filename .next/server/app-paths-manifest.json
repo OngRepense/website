@@ -11,5 +11,6 @@
   "/projetos/page": "app/projetos/page.js",
   "/projetos/reforco-escolar/page": "app/projetos/reforco-escolar/page.js",
   "/sobre/page": "app/sobre/page.js",
-  "/vagas/page": "app/vagas/page.js"
+  "/vagas/page": "app/vagas/page.js",
+  "/voluntarios/page": "app/voluntarios/page.js"
 }

@@ -262,13 +262,15 @@ export default function Home() {
               </svg>
               Fazer doação
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="w-full md:w-auto border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-base md:text-lg"
-            >
-              Ser voluntário
-            </Button>
+            <Link href="/voluntarios">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="w-full md:w-auto border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-base md:text-lg"
+              >
+                Ser voluntário
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

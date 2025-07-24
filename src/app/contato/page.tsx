@@ -87,7 +87,6 @@ export default function Contact() {
                     required
                   >
                     <option value="">Selecione um assunto</option>
-                    <option value="volunteer">Quero ser voluntário</option>
                     <option value="partnership">Proposta de parceria</option>
                     <option value="donation">Informações sobre doação</option>
                     <option value="other">Outro assunto</option>

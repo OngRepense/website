@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 
 interface TeamMember {
@@ -185,13 +186,15 @@ export default function Team() {
             >
               Ver Vagas
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-lg"
-            >
-              Ser Voluntário
-            </Button>
+            <Link href="/voluntarios">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-lg"
+              >
+                Ser Voluntário
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

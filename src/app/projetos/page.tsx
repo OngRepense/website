@@ -123,13 +123,15 @@ export default function Projects() {
             >
               Fazer doação
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-lg"
-            >
-              Ser voluntário
-            </Button>
+            <Link href="/voluntarios">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white min-w-[200px] h-12 text-lg"
+              >
+                Ser voluntário
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

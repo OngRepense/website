@@ -479,9 +479,11 @@ export default function ReforcoEscolar() {
             Cada ajuda faz a diferença na vida dessas crianças.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Button className="bg-[#FF6B00] text-white hover:bg-[#FF6B00]/90 text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3 w-full sm:w-auto">
-              Seja Voluntário
-            </Button>
+            <Link href="/voluntarios">
+              <Button className="bg-[#FF6B00] text-white hover:bg-[#FF6B00]/90 text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3 w-full sm:w-auto">
+                Seja Voluntário
+              </Button>
+            </Link>
             <Button className="bg-white text-[#FF6B00] border-2 border-[#FF6B00] hover:bg-[#FF6B00] hover:text-white text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3 w-full sm:w-auto">
               Faça uma Doação
             </Button>

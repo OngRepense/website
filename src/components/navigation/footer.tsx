@@ -64,7 +64,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/voluntario" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="/voluntarios" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Seja Voluntário
                 </Link>
               </li>
