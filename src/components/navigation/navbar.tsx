@@ -52,9 +52,11 @@ export function Navbar() {
               Seja Voluntário
             </Button>
           </Link>
-          <Button className="bg-[#FF6B00] hover:bg-[#E65A00] text-white text-sm md:text-base px-3 md:px-4">
-            Doe Agora
-          </Button>
+          <Link href="/doacao">
+            <Button className="bg-[#FF6B00] hover:bg-[#E65A00] text-white text-sm md:text-base px-3 md:px-4">
+              Doe Agora
+            </Button>
+          </Link>
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -141,6 +143,13 @@ export function Navbar() {
               className="w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white mt-4"
             >
               Seja Voluntário
+            </Button>
+          </Link>
+          <Link href="/doacao" onClick={() => setIsMenuOpen(false)}>
+            <Button
+              className="w-full bg-[#FF6B00] hover:bg-[#E65A00] text-white mt-4"
+            >
+              Doe Agora
             </Button>
           </Link>
         </div>
