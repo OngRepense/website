@@ -37,11 +37,11 @@ const blogPosts = [
   {
     id: 4,
     title: "O poder da colaboração entre ONGs e empresas",
-    excerpt: "Veja como parcerias estratégicas podem amplificar o impacto social e criar mudanças duradouras.",
+    excerpt: "Como parcerias estratégicas estão mudando o mundo e criando impacto social duradouro",
     image: "/images/blog/blog-post-4.jpg",
     category: "Parcerias",
     date: "8 Mar 2024",
-    readTime: "4 min"
+    readTime: "5 min"
   },
   {
     id: 5,

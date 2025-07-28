@@ -2,7 +2,51 @@
 
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { Modal } from '@/components/ui/modal'
 import { useState } from 'react'
+
+// Interface para tipagem do formulário
+interface FormData {
+  // Dados Pessoais
+  nomeCompleto: string
+  dataNascimento: string
+  cidadeEstado: string
+  telefone: string
+  email: string
+  linkedin: string
+  portfolio: string
+  
+  // Objetivo Profissional
+  objetivoCarreira: string
+  
+  // Formação Acadêmica
+  formacoes: Array<{ curso: string; instituicao: string; anoConclusao: string }>
+  
+  // Experiência Profissional
+  experiencias: Array<{ 
+    empresa: string
+    cargo: string
+    periodo: string
+    atividades: string 
+  }>
+  
+  // Cursos e Certificações
+  certificacoes: Array<{ nome: string; instituicao: string; anoConclusao: string }>
+  
+  // Habilidades
+  habilidadesTecnicas: string
+  habilidadesComportamentais: string
+  
+  // Idiomas
+  idiomas: Array<{ idioma: string; nivel: string }>
+  
+  // Projetos Voluntários
+  projetosVoluntarios: Array<{ nome: string; descricao: string }>
+  
+  // Informações Adicionais
+  disponibilidade: string
+  cnh: string
+}
 
 // Dados das estatísticas
 const stats = [
@@ -132,6 +176,86 @@ const faqItems = [
 
 export default function Conecteai() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false)
+  const [formData, setFormData] = useState<FormData>({
+    // Dados Pessoais
+    nomeCompleto: '',
+    dataNascimento: '',
+    cidadeEstado: '',
+    telefone: '',
+    email: '',
+    linkedin: '',
+    portfolio: '',
+    
+    // Objetivo Profissional
+    objetivoCarreira: '',
+    
+    // Formação Acadêmica
+    formacoes: [{ curso: '', instituicao: '', anoConclusao: '' }],
+    
+    // Experiência Profissional
+    experiencias: [{ 
+      empresa: '', 
+      cargo: '', 
+      periodo: '', 
+      atividades: '' 
+    }],
+    
+    // Cursos e Certificações
+    certificacoes: [{ nome: '', instituicao: '', anoConclusao: '' }],
+    
+    // Habilidades
+    habilidadesTecnicas: '',
+    habilidadesComportamentais: '',
+    
+    // Idiomas
+    idiomas: [{ idioma: '', nivel: '' }],
+    
+    // Projetos Voluntários
+    projetosVoluntarios: [{ nome: '', descricao: '' }],
+    
+    // Informações Adicionais
+    disponibilidade: '',
+    cnh: ''
+  })
+
+  const handleInputChange = (field: keyof FormData, value: any) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
+
+  const handleArrayChange = (field: keyof FormData, index: number, value: any) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: (prev[field] as any[]).map((item: any, i: number) => 
+        i === index ? { ...item, ...value } : item
+      )
+    }))
+  }
+
+  const addArrayItem = (field: keyof FormData) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: [...(prev[field] as any[]), {}]
+    }))
+  }
+
+  const removeArrayItem = (field: keyof FormData, index: number) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: (prev[field] as any[]).filter((_: any, i: number) => i !== index)
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('Formulário enviado:', formData)
+    // Aqui você pode adicionar a lógica para enviar os dados
+    alert('Formulário enviado com sucesso!')
+    setIsFormModalOpen(false)
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -176,13 +300,20 @@ export default function Conecteai() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-white text-[#FF6B00] hover:bg-white/90 text-lg px-8 py-6 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <Button 
+                  className="bg-white text-[#FF6B00] hover:bg-white/90 text-lg px-8 py-6 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  onClick={() => setIsFormModalOpen(true)}
+                >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                   </svg>
                   Começar agora
                 </Button>
-                <Button variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 text-lg px-8 py-6 rounded-full">
+                <Button 
+                  variant="outline" 
+                  className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 text-lg px-8 py-6 rounded-full"
+                  onClick={() => window.location.href = '/contato'}
+                >
                   Sou empresa
                 </Button>
               </div>
@@ -279,7 +410,11 @@ export default function Conecteai() {
             <p className="text-gray-600 mb-8">
               Junte-se a mais de 500 empresas que já confiam em nossa plataforma
             </p>
-            <Button variant="outline" className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white">
+            <Button 
+              variant="outline" 
+              className="border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white"
+              onClick={() => window.location.href = '/contato'}
+            >
               Cadastrar minha empresa
             </Button>
           </div>
@@ -328,7 +463,10 @@ export default function Conecteai() {
           </div>
 
           <div className="text-center mt-16">
-            <Button className="bg-[#25D366] hover:bg-[#25D366]/90 text-white text-lg px-8 py-6 rounded-full flex items-center gap-2 mx-auto">
+            <Button 
+              className="bg-[#25D366] hover:bg-[#25D366]/90 text-white text-lg px-8 py-6 rounded-full flex items-center gap-2 mx-auto"
+              onClick={() => setIsFormModalOpen(true)}
+            >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
               </svg>
@@ -358,7 +496,10 @@ export default function Conecteai() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button className="bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white">
+            <Button 
+              className="bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white"
+              onClick={() => setIsFormModalOpen(true)}
+            >
               Cadastre-se gratuitamente
             </Button>
           </div>
@@ -444,11 +585,510 @@ export default function Conecteai() {
           <h2 className="text-3xl font-bold text-white mb-8">
             Pronto para encontrar seu próximo emprego?
           </h2>
-          <Button className="bg-white text-[#FF6B00] hover:bg-white/90 text-lg px-8 py-6">
+          <Button 
+            className="bg-white text-[#FF6B00] hover:bg-white/90 text-lg px-8 py-6"
+            onClick={() => setIsFormModalOpen(true)}
+          >
             Cadastre seu perfil agora
           </Button>
         </div>
       </section>
+
+      {/* Formulário Modal */}
+      <Modal
+        isOpen={isFormModalOpen}
+        onClose={() => setIsFormModalOpen(false)}
+        title="Formulário para Perfil Profissional"
+        size="full"
+      >
+        <form onSubmit={handleSubmit} className="space-y-6 p-6">
+          {/* 1. Dados Pessoais */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">1. Dados Pessoais</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Nome completo *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.nomeCompleto}
+                  onChange={(e) => handleInputChange('nomeCompleto', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Data de nascimento *</label>
+                <input
+                  type="date"
+                  required
+                  value={formData.dataNascimento}
+                  onChange={(e) => handleInputChange('dataNascimento', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Cidade/Estado *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.cidadeEstado}
+                  onChange={(e) => handleInputChange('cidadeEstado', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Telefone (WhatsApp) *</label>
+                <input
+                  type="tel"
+                  required
+                  value={formData.telefone}
+                  onChange={(e) => handleInputChange('telefone', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">E-mail profissional *</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn</label>
+                <input
+                  type="url"
+                  value={formData.linkedin}
+                  onChange={(e) => handleInputChange('linkedin', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+              
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Portfólio/Website</label>
+                <input
+                  type="url"
+                  value={formData.portfolio}
+                  onChange={(e) => handleInputChange('portfolio', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Objetivo Profissional */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">2. Objetivo Profissional</h3>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Objetivo de carreira (2-3 linhas) *</label>
+              <textarea
+                required
+                rows={3}
+                value={formData.objetivoCarreira}
+                onChange={(e) => handleInputChange('objetivoCarreira', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                placeholder="Descreva seus objetivos profissionais e o que busca em uma oportunidade..."
+              />
+            </div>
+          </div>
+
+          {/* 3. Formação Acadêmica */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">3. Formação Acadêmica</h3>
+            
+            {formData.formacoes.map((formacao, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg p-4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <h4 className="font-medium text-gray-700">Formação {index + 1}</h4>
+                  {formData.formacoes.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeArrayItem('formacoes', index)}
+                      className="text-red-500 hover:text-red-700 text-sm"
+                    >
+                      Remover
+                    </button>
+                  )}
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Curso *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formacao.curso}
+                      onChange={(e) => handleArrayChange('formacoes', index, { curso: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Instituição *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formacao.instituicao}
+                      onChange={(e) => handleArrayChange('formacoes', index, { instituicao: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Ano de conclusão *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formacao.anoConclusao}
+                      onChange={(e) => handleArrayChange('formacoes', index, { anoConclusao: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                      placeholder="2023 ou Cursando"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            <button
+              type="button"
+              onClick={() => addArrayItem('formacoes')}
+              className="text-[#FF6B00] hover:text-[#FF6B00]/80 text-sm font-medium"
+            >
+              + Adicionar formação
+            </button>
+          </div>
+
+          {/* 4. Experiência Profissional */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">4. Experiência Profissional</h3>
+            
+            {formData.experiencias.map((experiencia, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg p-4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <h4 className="font-medium text-gray-700">Experiência {index + 1}</h4>
+                  {formData.experiencias.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeArrayItem('experiencias', index)}
+                      className="text-red-500 hover:text-red-700 text-sm"
+                    >
+                      Remover
+                    </button>
+                  )}
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Empresa *</label>
+                    <input
+                      type="text"
+                      required
+                      value={experiencia.empresa}
+                      onChange={(e) => handleArrayChange('experiencias', index, { empresa: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Cargo/Função *</label>
+                    <input
+                      type="text"
+                      required
+                      value={experiencia.cargo}
+                      onChange={(e) => handleArrayChange('experiencias', index, { cargo: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Período (mês/ano - mês/ano) *</label>
+                    <input
+                      type="text"
+                      required
+                      value={experiencia.periodo}
+                      onChange={(e) => handleArrayChange('experiencias', index, { periodo: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                      placeholder="Jan/2020 - Dez/2023"
+                    />
+                  </div>
+                  
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Principais atividades e conquistas (3 a 5 tópicos) *</label>
+                    <textarea
+                      required
+                      rows={4}
+                      value={experiencia.atividades}
+                      onChange={(e) => handleArrayChange('experiencias', index, { atividades: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                      placeholder="• Descreva suas principais responsabilidades&#10;• Mencione conquistas e resultados&#10;• Use tópicos para melhor organização"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            <button
+              type="button"
+              onClick={() => addArrayItem('experiencias')}
+              className="text-[#FF6B00] hover:text-[#FF6B00]/80 text-sm font-medium"
+            >
+              + Adicionar experiência
+            </button>
+          </div>
+
+          {/* 5. Cursos e Certificações */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">5. Cursos e Certificações Complementares</h3>
+            
+            {formData.certificacoes.map((certificacao, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg p-4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <h4 className="font-medium text-gray-700">Certificação {index + 1}</h4>
+                  {formData.certificacoes.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeArrayItem('certificacoes', index)}
+                      className="text-red-500 hover:text-red-700 text-sm"
+                    >
+                      Remover
+                    </button>
+                  )}
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Nome do curso</label>
+                    <input
+                      type="text"
+                      value={certificacao.nome}
+                      onChange={(e) => handleArrayChange('certificacoes', index, { nome: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Instituição</label>
+                    <input
+                      type="text"
+                      value={certificacao.instituicao}
+                      onChange={(e) => handleArrayChange('certificacoes', index, { instituicao: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Ano de conclusão</label>
+                    <input
+                      type="text"
+                      value={certificacao.anoConclusao}
+                      onChange={(e) => handleArrayChange('certificacoes', index, { anoConclusao: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            <button
+              type="button"
+              onClick={() => addArrayItem('certificacoes')}
+              className="text-[#FF6B00] hover:text-[#FF6B00]/80 text-sm font-medium"
+            >
+              + Adicionar certificação
+            </button>
+          </div>
+
+          {/* 6. Habilidades e Competências */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">6. Habilidades e Competências</h3>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Habilidades técnicas</label>
+              <textarea
+                rows={3}
+                value={formData.habilidadesTecnicas}
+                onChange={(e) => handleInputChange('habilidadesTecnicas', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                placeholder="Ex.: Excel avançado, Power BI, Python, JavaScript, etc."
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Habilidades comportamentais</label>
+              <textarea
+                rows={3}
+                value={formData.habilidadesComportamentais}
+                onChange={(e) => handleInputChange('habilidadesComportamentais', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                placeholder="Ex.: Comunicação, Liderança, Trabalho em equipe, etc."
+              />
+            </div>
+          </div>
+
+          {/* 7. Idiomas */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">7. Idiomas</h3>
+            
+            {formData.idiomas.map((idioma, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg p-4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <h4 className="font-medium text-gray-700">Idioma {index + 1}</h4>
+                  {formData.idiomas.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeArrayItem('idiomas', index)}
+                      className="text-red-500 hover:text-red-700 text-sm"
+                    >
+                      Remover
+                    </button>
+                  )}
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Idioma</label>
+                    <input
+                      type="text"
+                      value={idioma.idioma}
+                      onChange={(e) => handleArrayChange('idiomas', index, { idioma: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Nível</label>
+                    <select
+                      value={idioma.nivel}
+                      onChange={(e) => handleArrayChange('idiomas', index, { nivel: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    >
+                      <option value="">Selecione</option>
+                      <option value="Básico">Básico</option>
+                      <option value="Intermediário">Intermediário</option>
+                      <option value="Avançado">Avançado</option>
+                      <option value="Fluente">Fluente</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            <button
+              type="button"
+              onClick={() => addArrayItem('idiomas')}
+              className="text-[#FF6B00] hover:text-[#FF6B00]/80 text-sm font-medium"
+            >
+              + Adicionar idioma
+            </button>
+          </div>
+
+          {/* 8. Projetos Voluntários */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">8. Projetos ou Trabalhos Voluntários (opcional)</h3>
+            
+            {formData.projetosVoluntarios.map((projeto, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg p-4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <h4 className="font-medium text-gray-700">Projeto {index + 1}</h4>
+                  {formData.projetosVoluntarios.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeArrayItem('projetosVoluntarios', index)}
+                      className="text-red-500 hover:text-red-700 text-sm"
+                    >
+                      Remover
+                    </button>
+                  )}
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Nome do projeto ou ONG</label>
+                    <input
+                      type="text"
+                      value={projeto.nome}
+                      onChange={(e) => handleArrayChange('projetosVoluntarios', index, { nome: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Descrição das atividades e resultados</label>
+                    <textarea
+                      rows={3}
+                      value={projeto.descricao}
+                      onChange={(e) => handleArrayChange('projetosVoluntarios', index, { descricao: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            <button
+              type="button"
+              onClick={() => addArrayItem('projetosVoluntarios')}
+              className="text-[#FF6B00] hover:text-[#FF6B00]/80 text-sm font-medium"
+            >
+              + Adicionar projeto
+            </button>
+          </div>
+
+          {/* 9. Informações Adicionais */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-[#FF6B00] border-b pb-2">9. Informações Adicionais</h3>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Disponibilidade (mudança, viagens, horários)</label>
+              <textarea
+                rows={3}
+                value={formData.disponibilidade}
+                onChange={(e) => handleInputChange('disponibilidade', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                placeholder="Ex.: Disponível para mudança de cidade, viagens ocasionais, horário comercial"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Possui CNH? (Categoria)</label>
+              <input
+                type="text"
+                value={formData.cnh}
+                onChange={(e) => handleInputChange('cnh', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent"
+                placeholder="Ex.: Sim, categoria B ou Não"
+              />
+            </div>
+          </div>
+
+          {/* Botões de ação */}
+          <div className="flex gap-4 pt-6 border-t">
+            <Button
+              type="submit"
+              className="flex-1 bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white"
+            >
+              Enviar Formulário
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setIsFormModalOpen(false)}
+              className="flex-1"
+            >
+              Cancelar
+            </Button>
+          </div>
+        </form>
+      </Modal>
     </div>
   )
 } 

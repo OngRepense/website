@@ -161,14 +161,117 @@ const blogPosts = [
   {
     id: 4,
     title: "O poder da colaboração entre ONGs e empresas",
-    excerpt: "Veja como parcerias estratégicas podem amplificar o impacto social e criar mudanças duradouras.",
-    content: "Conteúdo do post 4...",
+    excerpt: "Como parcerias estratégicas estão mudando o mundo e criando impacto social duradouro",
+    content: `
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+          Parcerias & Impacto Social
+        </div>
+        <p class="text-lg text-gray-600 italic">Como parcerias estratégicas estão mudando o mundo e criando impacto social duradouro</p>
+      </div>
+
+      <p>Já parou pra pensar como o mundo pode mudar quando diferentes forças se unem? ONGs e empresas têm se aproximado cada vez mais, e isso não é à toa: essa parceria tem mostrado um <strong>poder transformador real</strong>, criando soluções que impactam comunidades inteiras e geram valor para todos os envolvidos.</p>
+      
+      <p>Neste post, você vai entender por que a colaboração entre o setor social e o setor privado é uma das estratégias mais promissoras para quem quer fazer a diferença de verdade.</p>
+
+      <hr class="my-8 border-gray-200">
+
+      <h2>O que cada um traz pra mesa?</h2>
+      
+      <p>As ONGs conhecem as necessidades das comunidades como ninguém. Estão ali no dia a dia, escutando, acolhendo, agindo. Já as empresas têm recursos, estrutura, pessoas qualificadas e, muitas vezes, alcance nacional ou até global. Quando essas duas potências se encontram, o resultado é um só: <strong>impacto social em escala!</strong></p>
+      
+      <p>Essa união permite:</p>
+      
+      <ul class="list-none space-y-3 my-6">
+        <li class="flex items-start">
+          <span class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">•</span>
+          <div><strong>Mais recursos para projetos sociais</strong></div>
+        </li>
+        <li class="flex items-start">
+          <span class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">•</span>
+          <div><strong>Acesso a conhecimento técnico e ferramentas de gestão</strong></div>
+        </li>
+        <li class="flex items-start">
+          <span class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">•</span>
+          <div><strong>Visibilidade ampliada para as causas sociais</strong></div>
+        </li>
+        <li class="flex items-start">
+          <span class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">•</span>
+          <div><strong>Ações mais sustentáveis e com maior alcance</strong></div>
+        </li>
+      </ul>
+
+      <hr class="my-8 border-gray-200">
+
+      <h2>Benefício mútuo: todo mundo sai ganhando</h2>
+      
+      <p>Sim, essa parceria é <strong>ganha-ganha</strong>. As ONGs conseguem ampliar seus projetos e atender mais pessoas. As empresas, por outro lado, fortalecem sua imagem, se conectam com causas relevantes e ainda motivam seus colaboradores.</p>
+      
+      <blockquote class="bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-400 p-6 rounded-r-xl my-8">
+        <p class="text-blue-800 font-medium text-lg">Hoje, o consumidor quer mais do que um bom produto — ele quer saber o que aquela marca apoia. Propósito importa. E muito.</p>
+      </blockquote>
+
+      <hr class="my-8 border-gray-200">
+
+      <h2>Exemplos que fazem brilhar os olhos ✨</h2>
+      
+      <p>Quer ver isso funcionando na prática? Aqui vão algumas ideias:</p>
+
+      <div class="grid md:grid-cols-1 gap-8 my-12">
+        <div class="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-2xl border-l-4 border-green-400">
+          <h3 class="text-xl font-bold text-green-900 mb-4 flex items-center">
+            <span class="text-2xl mr-3">💰</span>
+            Campanhas de arrecadação solidária
+          </h3>
+          <p class="text-green-800 leading-relaxed">Marcas que destinam parte das vendas para apoiar projetos sociais e ainda divulgam a causa nas redes, aumentando a conscientização.</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-8 rounded-2xl border-l-4 border-purple-400">
+          <h3 class="text-xl font-bold text-purple-900 mb-4 flex items-center">
+            <span class="text-2xl mr-3">👩🏽‍🏫</span>
+            Programas de voluntariado corporativo
+          </h3>
+          <p class="text-purple-800 leading-relaxed">Funcionários de empresas que doam tempo, talento e conhecimento para fortalecer o trabalho de ONGs.</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-8 rounded-2xl border-l-4 border-orange-400">
+          <h3 class="text-xl font-bold text-orange-900 mb-4 flex items-center">
+            <span class="text-2xl mr-3">📚</span>
+            Apoio à educação e geração de renda
+          </h3>
+          <p class="text-orange-800 leading-relaxed">Empresas que apoiam iniciativas que formam jovens, mulheres ou pessoas em situação de vulnerabilidade para o mercado de trabalho ou para empreender.</p>
+        </div>
+      </div>
+
+      <hr class="my-8 border-gray-200">
+
+      <h2>O que faz uma parceria dar certo?</h2>
+      
+      <p>O segredo está no <strong>alinhamento de valores</strong>. Não basta uma empresa apoiar qualquer causa só pra "pegar bem". A conexão precisa ser real. É preciso diálogo, escuta, planejamento e objetivos em comum.</p>
+      
+      <p>Quando ONG e empresa acreditam no mesmo propósito e trabalham juntas com respeito e transparência, o impacto vai muito além do esperado.</p>
+
+      <hr class="my-8 border-gray-200">
+
+      <h2>E aí, vamos colaborar?</h2>
+      
+      <p>Se você faz parte de uma ONG, que tal começar a olhar para o setor privado como um aliado estratégico? Se você trabalha em uma empresa, talvez esteja na hora de olhar com mais atenção para o impacto social que sua marca pode gerar.</p>
+      
+      <div class="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 p-8 rounded-2xl border-2 border-orange-200 mb-8">
+        <p class="text-lg text-gray-800 leading-relaxed">Transformar o mundo pode parecer uma tarefa enorme — e é mesmo. Mas quando a gente se une, cada passo tem muito mais força.</p>
+      </div>
+      
+      <div class="text-center">
+        <p class="text-xl font-bold text-gray-900 mb-4">Vamos juntos? 💪🏽🌍</p>
+      </div>
+    `,
     image: "/images/blog/blog-post-4.jpg",
     category: "Parcerias",
     date: "8 Mar 2024",
-    readTime: "4 min",
-    author: "Equipe Repense",
-    authorAvatar: "/images/perfil-elaine.png"
+    readTime: "5 min",
+    author: "Sini Chaves",
+    authorAvatar: "/images/perfil-sini.png"
   },
   {
     id: 5,
