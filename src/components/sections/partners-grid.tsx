@@ -20,6 +20,18 @@ const partners = [
     logo: '/images/partners/cea.png',
     link: 'https://www.cea.com.br',
     description: 'Comprometida com a transformação social'
+  },
+  {
+    name: 'DyMillaStore',
+    logo: '/images/partners/DyMillaStore.png',
+    link: 'https://www.instagram.com/dymillastore/',
+    description: 'Comprometida com a transformação social'
+  },
+  {
+    name: 'Vitrine do Mundo',
+    logo: '/images/partners/VitrinedoMundo.png',
+    link: 'https://www.instagram.com/vitrine_domundo/',
+    description: 'Comprometida com a transformação social'
   }
 ]
 
