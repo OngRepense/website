@@ -66,23 +66,23 @@ const stats = [
 
 // Dados das empresas parceiras
 const partners = [
-  { 
-    name: 'C&A', 
-    logo: '/images/partners/cea.png',
-    width: 120,
-    height: 60
-  },
-  { 
-    name: 'Assaí', 
+  {
+    name: 'Assaí Atacadista',
     logo: '/images/partners/assai.png',
-    width: 140,
-    height: 70
+    link: 'https://www.assai.com.br',
+    description: 'Apoiando projetos sociais e educacionais'
   },
-  { 
-    name: 'Grupo Parvi', 
+  {
+    name: 'Grupo Parvi',
     logo: '/images/partners/parvi.png',
-    width: 130,
-    height: 65
+    link: 'https://www.grupoparvi.com.br',
+    description: 'Investindo no futuro através da educação'
+  },
+  {
+    name: 'C&A',
+    logo: '/images/partners/cea.png',
+    link: 'https://www.cea.com.br',
+    description: 'Comprometida com a transformação social'
   }
 ]
 
@@ -390,19 +390,23 @@ export default function Conecteai() {
           
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20">
             {partners.map((partner, index) => (
-              <div 
-                key={index} 
+              <a
+                key={partner.name}
+                href={partner.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative group w-[200px] h-[100px] flex items-center justify-center"
+                aria-label={`Visite o site da ${partner.name}`}
               >
                 <div className="absolute inset-0 bg-white rounded-xl shadow-sm group-hover:shadow-md transition-shadow duration-300"></div>
                 <Image
                   src={partner.logo}
                   alt={`Logo ${partner.name}`}
-                  width={partner.width}
-                  height={partner.height}
+                  width={120}
+                  height={60}
                   className="relative object-contain transition-all duration-300 group-hover:scale-105 p-4"
                 />
-              </div>
+              </a>
             ))}
           </div>
 

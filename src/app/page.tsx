@@ -126,14 +126,17 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <section className="w-full py-16 md:py-24 bg-orange-50">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-orange-50">
         <div className="px-4 md:px-8 lg:px-16 max-w-screen-2xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block px-4 py-1.5 bg-orange-100 rounded-full text-[#FF6B00] font-medium text-sm mb-4">
+              Parcerias
+            </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#FF6B00]">
               Nossos Parceiros
             </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Empresas e organizações que acreditam no nosso trabalho e nos ajudam a transformar vidas.
+              Empresas e organizações que acreditam no nosso trabalho e nos ajudam a transformar vidas através de parcerias estratégicas.
             </p>
           </div>
           <PartnersGrid />
